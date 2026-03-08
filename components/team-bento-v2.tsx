@@ -2,7 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Linkedin, Mail, MapPin, TrendingUp, Github } from "lucide-react";
+import {
+  Linkedin,
+  Mail,
+  MapPin,
+  TrendingUp,
+  Github,
+  Award,
+} from "lucide-react";
 
 // Team Data - Easy to update
 const teamMembers = [
@@ -12,7 +19,8 @@ const teamMembers = [
     description:
       "Specializing in Enterprise Web Scraping, Data Pipeline Engineering, and LinkedIn API solutions. Built FastScraping to solve data extraction challenges that other vendors couldn't handle.",
     image: "/shawon.jpg",
-    location: "Bangladesh",
+    achievements: "Enterprise Web Scraping Expert",
+    location: "Sirajganj, Rajshahi, Bangladesh",
     isFounder: true,
     links: {
       linkedin: "https://linkedin.com/in/md-khalid-mahmud-shawon",
@@ -26,6 +34,7 @@ const teamMembers = [
     description:
       "Leading technical architecture and infrastructure decisions. Expert in building scalable data pipelines and distributed systems.",
     image: "/team/shawon.jpg",
+    achievements: "Data Pipeline Architect",
     location: "Bangladesh",
     isFounder: false,
     links: {
@@ -39,6 +48,7 @@ const teamMembers = [
     description:
       "Expert in bypassing Cloudflare, DataDome, PerimeterX, and Akamai. Developing cutting-edge stealth browser technology.",
     image: "/team/shawon.jpg",
+    achievements: "Anti-Bot Research Lead",
     location: "Bangladesh",
     isFounder: false,
     links: {
@@ -71,7 +81,8 @@ export function TeamBentoGridV2() {
               Meet the <span className="text-gradient">People</span>
             </h2>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              The experts behind FastScraping's success
+              The battle-tested engineers and data specialists behind
+              FastScraping's enterprise-grade success
             </p>
           </motion.div>
 
@@ -117,9 +128,14 @@ export function TeamBentoGridV2() {
                   </h3>
 
                   {/* Location */}
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
                     <MapPin className="w-4 h-4 text-secondary" />
                     <span>{member.location}</span>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <Award className="w-4 h-4 text-secondary" />
+                    <span>{member.achievements}</span>
                   </div>
 
                   <p className="text-gray-600 text-sm leading-relaxed mb-6">
@@ -196,9 +212,14 @@ export function TeamBentoGridV2() {
                       {founder.name}
                     </h3>
 
-                    <div className="flex items-center gap-2 text-gray-500 mb-6">
+                    <div className="flex items-center gap-2 text-gray-500 mb-1">
                       <MapPin className="w-5 h-5 text-secondary" />
                       <span>{founder.location}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-gray-500 mb-6">
+                      <Award className="w-5 h-5 text-secondary" />
+                      <span>{founder.achievements}</span>
                     </div>
 
                     <p className="text-gray-600 leading-relaxed mb-8 text-lg">
@@ -276,9 +297,14 @@ export function TeamBentoGridV2() {
                       {member.name}
                     </h3>
 
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
                       <MapPin className="w-4 h-4 text-secondary" />
                       <span>{member.location}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                      <Award className="w-4 h-4 text-secondary" />
+                      <span>{member.achievements}</span>
                     </div>
 
                     <p className="text-gray-600 text-sm leading-relaxed mb-6">

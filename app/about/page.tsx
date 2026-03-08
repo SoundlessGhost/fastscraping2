@@ -336,12 +336,12 @@ export default function AboutPage() {
             >
               <div className="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-lg mb-4">
                 <img
-                  src="/team/shahed.jpg"
-                  alt="MD Shahed Abid"
+                  src="/team/shawon.jpg"
+                  alt="MD Khalid Mahmud Shawon"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-primary">MD Shahed Abid</h3>
+              <h3 className="text-lg font-bold text-primary">MD Khalid Mahmud Shawon</h3>
               <p className="text-secondary text-sm mb-2">CTO</p>
               <p className="text-gray-600 text-sm">
                 Short description about this team member.
@@ -358,7 +358,7 @@ export default function AboutPage() {
             >
               <div className="w-28 h-28 mx-auto rounded-full overflow-hidden shadow-lg mb-4">
                 <img
-                  src="/team/shahed1.jpg"
+                  src="/team/shawon.jpg"
                   alt="Silent Ghost"
                   className="w-full h-full object-cover"
                 />

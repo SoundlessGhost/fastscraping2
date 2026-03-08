@@ -25,7 +25,7 @@ const teamMembers = [
     role: "CTO",
     description:
       "Leading technical architecture and infrastructure decisions. Expert in building scalable data pipelines and distributed systems.",
-    image: "/team/shahed.jpg",
+    image: "/team/shawon.jpg",
     location: "Bangladesh",
     isFounder: false,
     links: {
@@ -38,7 +38,7 @@ const teamMembers = [
     role: "Head of Anti-Bot Research",
     description:
       "Expert in bypassing Cloudflare, DataDome, PerimeterX, and Akamai. Developing cutting-edge stealth browser technology.",
-    image: "/team/shahed1.jpg",
+    image: "/team/shawon.jpg",
     location: "Bangladesh",
     isFounder: false,
     links: {

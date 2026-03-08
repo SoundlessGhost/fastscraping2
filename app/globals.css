@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-plus-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-sora: 'Sora', system-ui, sans-serif;
-  
+  --font-plus-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sora: "Sora", system-ui, sans-serif;
+
   /* Colors */
   --color-primary: #043f34;
   --color-secondary: #71967d;
@@ -24,10 +24,16 @@
 
 html {
   scroll-behavior: smooth;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
 }
 
 body {
-  font-family: var(--font-plus-jakarta);
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  /* font-family: var(--font-plus-jakarta); */
   background-color: var(--color-cream);
   color: #1a1a1a;
   line-height: 1.6;
@@ -42,7 +48,8 @@ body {
 }
 
 /* Smooth transitions for all interactive elements */
-a, button {
+a,
+button {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -69,39 +76,52 @@ a, button {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .text-gradient {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .bg-gradient-primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #065446 50%, var(--color-secondary) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      #065446 50%,
+      var(--color-secondary) 100%
+    );
   }
-  
+
   .bg-gradient-soft {
     background: linear-gradient(180deg, var(--color-cream) 0%, #fff 100%);
   }
-  
+
   .bg-gradient-sage {
-    background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-mint) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-sage) 0%,
+      var(--color-mint) 100%
+    );
   }
-  
+
   /* Decorative patterns */
   .pattern-dots {
     background-image: radial-gradient(var(--color-sage) 1px, transparent 1px);
     background-size: 24px 24px;
   }
-  
+
   .pattern-grid {
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(4, 63, 52, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(4, 63, 52, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
-  
+
   /* Glass effect */
   .glass {
     background: rgba(255, 255, 255, 0.7);
@@ -109,12 +129,14 @@ a, button {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
-  
+
   /* Hover lift effect */
   .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
-  
+
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px -10px rgba(4, 63, 52, 0.15);
@@ -127,13 +149,25 @@ a, button {
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
   }
-  
-  .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-  .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
-  .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
-  .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
-  .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
-  .animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+
+  .animate-stagger > *:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .animate-stagger > *:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .animate-stagger > *:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .animate-stagger > *:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .animate-stagger > *:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .animate-stagger > *:nth-child(6) {
+    animation-delay: 0.6s;
+  }
 }
 
 /* Button styles */
@@ -144,14 +178,14 @@ a, button {
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-lg hover:-translate-y-0.5;
   }
-  
+
   .btn-secondary {
     @apply inline-flex items-center justify-center px-6 py-3 bg-white text-primary font-semibold rounded-lg;
     @apply border-2 border-primary;
     @apply hover:bg-primary hover:text-white;
     @apply transition-all duration-300 ease-out;
   }
-  
+
   .btn-ghost {
     @apply inline-flex items-center justify-center px-4 py-2 text-primary font-medium;
     @apply hover:bg-sage/30 rounded-lg;
@@ -164,11 +198,11 @@ a, button {
   .section {
     @apply py-20 lg:py-28;
   }
-  
+
   .section-heading {
     @apply text-4xl lg:text-5xl font-bold text-primary font-display tracking-tight;
   }
-  
+
   .section-subheading {
     @apply text-lg lg:text-xl text-secondary max-w-2xl;
   }
@@ -182,7 +216,7 @@ a, button {
     @apply transition-all duration-300 ease-out;
     @apply border border-sage/20;
   }
-  
+
   .card-hover {
     @apply hover:-translate-y-1 cursor-pointer;
   }
@@ -192,7 +226,11 @@ a, button {
 .decorative-circle {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-mint) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-sage) 0%,
+    var(--color-mint) 100%
+  );
   opacity: 0.4;
   filter: blur(60px);
   z-index: -1;

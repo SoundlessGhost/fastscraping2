@@ -5,30 +5,32 @@ import { Quote, Star } from 'lucide-react'
 
 const testimonials = [
   {
-    quote: "I'm satisfied with the results for today, so you can add $400 setup fee to next invoice. Thank you for your hard work.",
-    author: 'Scott Vahey',
-    role: 'Owner',
-    company: 'Ficstar',
-    platform: 'StubHub Pipeline',
-    avatar: 'SV',
+    quote:
+      "I'm satisfied with the results for today, so you can add $400 setup fee to next invoice. Thank you for your hard work.",
+    author: "Scott Vahey",
+    role: "Owner",
+    company: "Ficstar",
+    platform: "StubHub Pipeline",
+    avatar: "SV",
   },
   {
     quote: "Most likely no one is able to do it except you. We will see :-)",
-    author: 'Adrian Mayer',
-    role: 'Founder',
-    company: 'TheDataHive',
-    platform: 'Swiss Real Estate APIs',
-    avatar: 'AM',
+    author: "Adrian Mayer",
+    role: "Founder",
+    company: "TheDataHive",
+    platform: "Switzerland Real Estate APIs",
+    avatar: "AM",
   },
   {
-    quote: "Your doing a great job with the Indeed US numbers over last couple months. Thank you for your efforts. Much appreciated!",
-    author: 'Scott Vahey',
-    role: 'Owner',
-    company: 'Ficstar',
-    platform: 'Indeed Pipeline',
-    avatar: 'SV',
+    quote:
+      "Your doing a great job with the Indeed US numbers over last couple months. Thank you for your efforts. Much appreciated!",
+    author: "Scott Vahey",
+    role: "Owner",
+    company: "Ficstar",
+    platform: "Indeed Pipeline",
+    avatar: "SV",
   },
-]
+];
 
 const platforms = [
   { name: 'StubHub', category: 'Ticketing' },

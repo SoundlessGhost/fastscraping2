@@ -50,7 +50,7 @@ const milestones = [
   },
   {
     year: "2025",
-    title: "Swiss Market Expansion",
+    title: "Switzerland Market Expansion",
     description:
       "Built custom real estate APIs for TheDataHive — ImmoScout24, Homegate, and more.",
   },

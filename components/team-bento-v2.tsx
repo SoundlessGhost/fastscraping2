@@ -29,11 +29,11 @@ const teamMembers = [
     },
   },
   {
-    name: "MD Shahed Abid",
+    name: "Kashru Bin Hadi Sumon",
     role: "CTO",
     description:
       "Leading technical architecture and infrastructure decisions. Expert in building scalable data pipelines and distributed systems.",
-    image: "/team/shawon.jpg",
+    image: "/team/kashru.jpg",
     achievements: "Data Pipeline Architect",
     location: "Bangladesh",
     isFounder: false,
@@ -43,11 +43,11 @@ const teamMembers = [
     },
   },
   {
-    name: "Silent Ghost",
+    name: "MD Rezwan Habib",
     role: "Head of Anti-Bot Research",
     description:
       "Expert in bypassing Cloudflare, DataDome, PerimeterX, and Akamai. Developing cutting-edge stealth browser technology.",
-    image: "/team/shawon.jpg",
+    image: "/team/rezwan.jpg",
     achievements: "Anti-Bot Research Lead",
     location: "Bangladesh",
     isFounder: false,

@@ -68,6 +68,24 @@ export function TeamBentoGridV2() {
     <>
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-sage/30 text-primary text-sm font-medium mb-6">
+              Our Team
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-bold font-display text-primary tracking-tight">
+              Meet the <span className="text-gradient">People</span>
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              The battle-tested engineers and data specialists behind
+              FastScraping's enterprise-grade success
+            </p>
+          </motion.div>
+
           {/* Founder - Full Width */}
           {founder && (
             <motion.div

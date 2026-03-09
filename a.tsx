@@ -13,7 +13,7 @@
         Meet the <span className="text-gradient">People</span>
       </h2>
       <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-        The battle-tested engineers and data specialists behind FastScraping's
+        The battle-tested engineers and data specialists behind FastScraping
         enterprise-grade success
       </p>
     </motion.div>

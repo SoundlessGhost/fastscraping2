@@ -160,7 +160,7 @@ export default function Navbar() {
             {/* CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
               <Link
-                href="/demo"
+                href="/contact/#demo-form"
                 className="group relative inline-flex items-center px-6 py-2.5 bg-primary text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-glow"
               >
                 <span className="relative z-10">Book a Demo</span>
@@ -226,7 +226,7 @@ export default function Navbar() {
                 </div>
                 <div className="mt-8 pt-8 border-t border-sage/30">
                   <Link
-                    href="/demo"
+                    href="/contact/#demo-form"
                     className="block w-full text-center px-6 py-3 bg-primary text-white font-semibold rounded-full"
                   >
                     Book a Demo

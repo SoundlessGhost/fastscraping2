@@ -38,36 +38,46 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden bg-cream">
       {/* Background Pattern */}
       <div className="absolute inset-0 pattern-grid opacity-50" />
-      
+
       {/* Decorative Elements */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-sage/30 to-mint/30 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-tr from-mint/20 to-sage/20 rounded-full blur-3xl" />
-      
+
       {/* Floating decorative shapes */}
       <motion.div
-        animate={{ 
+        animate={{
           y: [0, -20, 0],
           rotate: [0, 5, 0],
         }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-32 right-[15%] w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl"
       />
       <motion.div
-        animate={{ 
+        animate={{
           y: [0, 20, 0],
           rotate: [0, -5, 0],
         }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
         className="absolute bottom-40 right-[25%] w-12 h-12 bg-gradient-to-br from-sage/40 to-mint/40 rounded-xl"
       />
       <motion.div
-        animate={{ 
+        animate={{
           y: [0, 15, 0],
         }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
         className="absolute top-48 left-[10%] w-8 h-8 bg-mint/50 rounded-full"
       />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Content */}
@@ -84,13 +94,13 @@ export default function Hero() {
                 Built to Scale
               </span>
             </motion.div>
-            
+
             {/* Heading */}
-            <motion.h1 
+            <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-primary leading-[1.1] tracking-tight"
             >
-              Your Web Scraping Team{' '}
+              Your Web Scraping Team{" "}
               <span className="relative">
                 <span className="text-gradient">on Demand</span>
                 <motion.svg
@@ -108,7 +118,13 @@ export default function Hero() {
                     strokeLinecap="round"
                   />
                   <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient
+                      id="gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
                       <stop offset="0%" stopColor="#043f34" />
                       <stop offset="100%" stopColor="#71967d" />
                     </linearGradient>
@@ -116,17 +132,19 @@ export default function Hero() {
                 </motion.svg>
               </span>
             </motion.h1>
-            
+
             {/* Description */}
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed"
             >
-              We deliver structured data at large scale — no Cloudflare, no Captchas, no hassles. Just tell us what you need, we&apos;ll handle everything.
+              We deliver structured data at large scale — no Cloudflare, no
+              Captchas, no hassles. Just tell us what you need, we&apos;ll
+              handle everything.
             </motion.p>
-            
+
             {/* Features */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mt-8 flex flex-wrap gap-4"
             >
@@ -139,18 +157,20 @@ export default function Hero() {
                   className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-soft border border-sage/20"
                 >
                   <feature.icon className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-gray-700">{feature.text}</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    {feature.text}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
-            
+
             {/* CTA Buttons */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
               <Link
-                href="/demo"
+                href="/contact/#demo-form"
                 className="group inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-full text-lg transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5"
               >
                 Get Started
@@ -166,7 +186,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Trust indicators */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mt-12 flex items-center gap-6 text-sm text-gray-500"
             >
@@ -184,7 +204,7 @@ export default function Hero() {
               </div>
             </motion.div>
           </motion.div>
-          
+
           {/* Right Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
@@ -196,7 +216,7 @@ export default function Hero() {
             <div className="relative">
               {/* Glow effect */}
               <div className="absolute -inset-4 bg-gradient-to-r from-sage/40 via-mint/40 to-sage/40 rounded-3xl blur-2xl opacity-60" />
-              
+
               {/* Main card */}
               <div className="relative bg-white rounded-3xl shadow-soft-lg border border-sage/20 p-8 overflow-hidden">
                 {/* Decorative header */}
@@ -205,57 +225,71 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-secondary/30" />
                   <div className="w-3 h-3 rounded-full bg-sage" />
                 </div>
-                
+
                 {/* Stats grid */}
                 <div className="grid grid-cols-2 gap-4">
-                  <motion.div 
+                  <motion.div
                     className="p-4 bg-gradient-to-br from-sage/20 to-mint/20 rounded-2xl"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <p className="text-3xl font-bold text-primary font-display">100M+</p>
+                    <p className="text-3xl font-bold text-primary font-display">
+                      100M+
+                    </p>
                     <p className="text-sm text-gray-600 mt-1">Profiles/Month</p>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="p-4 bg-gradient-to-br from-mint/20 to-sage/20 rounded-2xl"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <p className="text-3xl font-bold text-primary font-display">60M</p>
+                    <p className="text-3xl font-bold text-primary font-display">
+                      60M
+                    </p>
                     <p className="text-sm text-gray-600 mt-1">Records/Daily</p>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="p-4 bg-gradient-to-br from-primary/5 to-secondary/10 rounded-2xl"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <p className="text-3xl font-bold text-primary font-display">99.7%</p>
+                    <p className="text-3xl font-bold text-primary font-display">
+                      99.7%
+                    </p>
                     <p className="text-sm text-gray-600 mt-1">Bypass Rate</p>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="p-4 bg-gradient-to-br from-secondary/10 to-primary/5 rounded-2xl"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <p className="text-3xl font-bold text-primary font-display">15+</p>
+                    <p className="text-3xl font-bold text-primary font-display">
+                      15+
+                    </p>
                     <p className="text-sm text-gray-600 mt-1">Months Stable</p>
                   </motion.div>
                 </div>
-                
+
                 {/* Live indicator */}
                 <div className="mt-6 flex items-center gap-3 p-3 bg-sage/20 rounded-xl">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                   </span>
-                  <span className="text-sm font-medium text-gray-700">Live data pipelines running</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    Live data pipelines running
+                  </span>
                 </div>
               </div>
-              
+
               {/* Floating card 1 */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="absolute -top-8 -right-8 bg-white rounded-2xl shadow-soft p-4 border border-sage/20"
               >
                 <div className="flex items-center gap-3">
@@ -263,16 +297,25 @@ export default function Hero() {
                     <Shield className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-primary">Anti-Bot Bypass</p>
-                    <p className="text-xs text-gray-500">Cloudflare • DataDome</p>
+                    <p className="text-sm font-semibold text-primary">
+                      Anti-Bot Bypass
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      Cloudflare • DataDome
+                    </p>
                   </div>
                 </div>
               </motion.div>
-              
+
               {/* Floating card 2 */}
               <motion.div
                 animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
                 className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-soft p-4 border border-sage/20"
               >
                 <div className="flex items-center gap-3">
@@ -280,7 +323,9 @@ export default function Hero() {
                     <Database className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-primary">Data Delivery</p>
+                    <p className="text-sm font-semibold text-primary">
+                      Data Delivery
+                    </p>
                     <p className="text-xs text-gray-500">API • SFTP • S3</p>
                   </div>
                 </div>
@@ -289,16 +334,21 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path 
-            d="M0 60L48 55C96 50 192 40 288 43.3C384 47 480 63 576 68.3C672 73 768 67 864 58.3C960 50 1056 40 1152 41.7C1248 43 1344 57 1392 63.3L1440 70V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V60Z" 
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            d="M0 60L48 55C96 50 192 40 288 43.3C384 47 480 63 576 68.3C672 73 768 67 864 58.3C960 50 1056 40 1152 41.7C1248 43 1344 57 1392 63.3L1440 70V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V60Z"
             fill="white"
           />
         </svg>
       </div>
     </section>
-  )
+  );
 }

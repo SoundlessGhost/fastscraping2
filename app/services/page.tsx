@@ -285,7 +285,7 @@ export default function ServicesPage() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="/demo"
+                href="/contact/#demo-form"
                 className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-full hover:shadow-glow hover:-translate-y-0.5 transition-all"
               >
                 Get Started
@@ -350,7 +350,7 @@ export default function ServicesPage() {
                   </div>
 
                   <Link
-                    href="/demo"
+                    href="/contact"
                     className="inline-flex items-center text-primary font-semibold group"
                   >
                     <span className="border-b-2 border-transparent group-hover:border-primary transition-colors">

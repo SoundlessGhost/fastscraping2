@@ -2,35 +2,62 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Linkedin, Twitter, Github, Mail, ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
-  services: [
-    { name: "Web Scraping", href: "/services/web-scraping" },
-    { name: "Price Monitoring", href: "/services/price-monitoring" },
-    { name: "Mobile App Scraping", href: "/services/mobile-scraping" },
-    { name: "Web Scraping API", href: "/services/api" },
-    { name: "Enterprise Crawling", href: "/services/enterprise" },
-  ],
   solutions: [
-    { name: "Ticketing & Events", href: "/solutions/ticketing" },
-    { name: "Real Estate Data", href: "/solutions/real-estate" },
-    { name: "Job Market Intelligence", href: "/solutions/jobs" },
-    { name: "Restaurant & Pricing", href: "/solutions/restaurant" },
-    { name: "LinkedIn Intelligence", href: "/solutions/linkedin" },
+    {
+      name: "Pricing Intelligence",
+      href: "/solutions#pricing-intelligence",
+    },
+    {
+      name: "Marketplace Intelligence",
+      href: "/solutions#marketplace-intelligence",
+    },
+    { name: "Job Market Insights", href: "/solutions#job-market" },
+    { name: "LinkedIn Data Platform", href: "/solutions#linkedin-data" },
+    { name: "Web Data APIs", href: "/solutions#web-data-apis" },
+    { name: "Data Pipelines & ETL", href: "/solutions#data-pipelines" },
+  ],
+  services: [
+    { name: "Managed Web Scraping", href: "/services#managed-scraping" },
+    {
+      name: "Enterprise Web Crawling",
+      href: "/services#enterprise-crawling",
+    },
+    {
+      name: "Mobile App Data Extraction",
+      href: "/services#mobile-app-scraping",
+    },
+    { name: "Real-time Data APIs", href: "/services#realtime-apis" },
+    {
+      name: "Automated Data Pipelines",
+      href: "/services#data-pipelines",
+    },
   ],
   industries: [
-    { name: "DaaS Companies", href: "/solutions/daas" },
-    { name: "AI & LLM", href: "/solutions/ai-llm" },
-    { name: "Pricing Intelligence", href: "/solutions/pricing-intelligence" },
-    { name: "PropTech", href: "/solutions/real-estate" },
-    { name: "HR Tech", href: "/solutions/hr-tech" },
+    { name: "Ecommerce & Retail", href: "/industries#ecommerce-retail" },
+    { name: "Real Estate", href: "/industries#real-estate" },
+    { name: "Talent & Recruitment", href: "/industries#talent-recruitment" },
+    { name: "Ticketing & Events", href: "/industries#ticketing-events" },
+    {
+      name: "Food Delivery & Grocery",
+      href: "/industries#food-delivery",
+    },
+    { name: "AI & Machine Learning", href: "/industries#ai-machine-learning" },
+    {
+      name: "Data & Analytics Platforms",
+      href: "/industries#data-analytics",
+    },
+    {
+      name: "SaaS & API Applications",
+      href: "/industries#saas-api",
+    },
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Case Studies", href: "/resources/case-studies" },
-    { name: "Blog", href: "/blog" },
-    { name: "Careers", href: "/careers" },
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Contact", href: "/contact" },
   ],
   resources: [
@@ -53,6 +80,30 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Handle anchor link click - smooth scroll if on same page
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+
+      // If we're on the same page, handle scroll manually
+      if (path === pathname) {
+        e.preventDefault();
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+          // Update URL without reload
+          window.history.pushState(null, "", `${path}#${hash}`);
+        }
+      }
+    }
+  };
+
   return (
     <footer className="bg-primary text-white relative overflow-hidden">
       {/* Decorative top border */}
@@ -66,7 +117,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Main Footer Content */}
         <div className="py-16 lg:py-20">
-          <div className="grid lg:grid-cols-7 gap-12 lg:gap-8">
+          <div className="grid lg:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="lg:col-span-2">
               <Link href="/" className="inline-block mb-6">
@@ -108,23 +159,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Links Columns */}
-            <div>
-              <h4 className="font-semibold text-white mb-4">Services</h4>
-              <ul className="space-y-1.5">
-                {footerLinks.services.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-white/70 hover:text-mint transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+            {/* Solutions */}
             <div>
               <h4 className="font-semibold text-white mb-4">Solutions</h4>
               <ul className="space-y-1.5">
@@ -132,6 +167,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
+                      onClick={(e) => handleAnchorClick(e, link.href)}
                       className="text-white/70 hover:text-mint transition-colors text-sm"
                     >
                       {link.name}
@@ -141,6 +177,25 @@ export default function Footer() {
               </ul>
             </div>
 
+            {/* Services */}
+            <div>
+              <h4 className="font-semibold text-white mb-4">Services</h4>
+              <ul className="space-y-1.5">
+                {footerLinks.services.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={(e) => handleAnchorClick(e, link.href)}
+                      className="text-white/70 hover:text-mint transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Industries */}
             <div>
               <h4 className="font-semibold text-white mb-4">Industries</h4>
               <ul className="space-y-1.5">
@@ -148,6 +203,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
+                      onClick={(e) => handleAnchorClick(e, link.href)}
                       className="text-white/70 hover:text-mint transition-colors text-sm"
                     >
                       {link.name}
@@ -157,26 +213,11 @@ export default function Footer() {
               </ul>
             </div>
 
+            {/* Company */}
             <div>
               <h4 className="font-semibold text-white mb-4">Company</h4>
               <ul className="space-y-1.5">
                 {footerLinks.company.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-white/70 hover:text-mint transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white mb-4">Resources</h4>
-              <ul className="space-y-1.5">
-                {footerLinks.resources.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}

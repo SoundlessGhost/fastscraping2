@@ -43,11 +43,11 @@ const teamMembers = [
     },
   },
   {
-    name: "MD Rezwan Habib",
+    name: "MD Rejwan Habib",
     role: "Head of Anti-Bot Research",
     description:
       "Expert in bypassing Cloudflare, DataDome, PerimeterX, and Akamai. Developing cutting-edge stealth browser technology.",
-    image: "/team/rezwan.jpg",
+    image: "/team/rejwan.png",
     achievements: "Anti-Bot Research Lead",
     location: "Bangladesh",
     isFounder: false,

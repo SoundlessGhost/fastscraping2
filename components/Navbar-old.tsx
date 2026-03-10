@@ -7,44 +7,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
 const navLinks = [
+  { name: "Services", href: "/services" },
   {
     name: "Solutions",
     href: "/solutions",
     dropdown: [
-      { name: "Competitor Pricing Intelligence", href: "/solutions#pricing-intelligence" },
-      { name: "Product & Marketplace Intelligence", href: "/solutions#marketplace-intelligence" },
-      { name: "Job Market Insights", href: "/solutions#job-market" },
-      { name: "LinkedIn Data Platform", href: "/solutions#linkedin-data" },
-      { name: "Web Data APIs", href: "/solutions#web-data-apis" },
-      { name: "Data Pipelines & ETL", href: "/solutions#data-pipelines" },
-    ],
-  },
-  {
-    name: "Services",
-    href: "/services",
-    dropdown: [
-      { name: "Managed Web Scraping", href: "/services#managed-scraping" },
-      { name: "Enterprise Web Crawling", href: "/services#enterprise-crawling" },
-      { name: "Mobile App Data Extraction", href: "/services#mobile-app-scraping" },
-      { name: "Real-time Data APIs", href: "/services#realtime-apis" },
-      { name: "Automated Data Pipelines", href: "/services#data-pipelines" },
-    ],
-  },
-  {
-    name: "Industries",
-    href: "/industries",
-    dropdown: [
-      { name: "Ecommerce & Retail", href: "/industries#ecommerce-retail" },
-      { name: "Real Estate", href: "/industries#real-estate" },
-      { name: "Talent & Recruitment", href: "/industries#talent-recruitment" },
-      { name: "Ticketing & Events", href: "/industries#ticketing-events" },
-      { name: "Food Delivery & Grocery", href: "/industries#food-delivery" },
-      { name: "AI & Machine Learning", href: "/industries#ai-machine-learning" },
-      { name: "Data & Analytics Platforms", href: "/industries#data-analytics" },
-      { name: "SaaS & API Applications", href: "/industries#saas-api" },
+      { name: "Ticketing & Events", href: "/solutions/ticketing" },
+      { name: "Real Estate Data", href: "/solutions/real-estate" },
+      { name: "Job Market Intelligence", href: "/solutions/jobs" },
+      { name: "Restaurant & Pricing", href: "/solutions/restaurant" },
+      { name: "LinkedIn Intelligence", href: "/solutions/linkedin" },
     ],
   },
   { name: "Pricing", href: "/pricing" },
+  { name: "Resources", href: "/resources" },
   { name: "About", href: "/about" },
 ];
 
@@ -52,7 +28,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileExpandedMenu, setMobileExpandedMenu] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -73,11 +48,6 @@ export default function Navbar() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  };
-
-  // Toggle mobile submenu
-  const toggleMobileSubmenu = (name: string) => {
-    setMobileExpandedMenu(mobileExpandedMenu === name ? null : name);
   };
 
   return (
@@ -177,7 +147,7 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-soft-lg border border-sage/20 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-soft-lg border border-sage/20 overflow-hidden"
                         >
                           <div className="p-2">
                             {link.dropdown.map((item, index) => (
@@ -185,11 +155,11 @@ export default function Navbar() {
                                 key={item.name}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.03 }}
+                                transition={{ delay: index * 0.05 }}
                               >
                                 <Link
                                   href={item.href}
-                                  className="flex items-center px-4 py-2.5 text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all duration-200 group text-sm"
+                                  className="flex items-center px-4 py-3 text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all duration-200 group"
                                 >
                                   <span>{item.name}</span>
                                   <ArrowRight className="ml-auto w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
@@ -257,68 +227,24 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl overflow-y-auto"
+              className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl"
             >
               <div className="p-6 pt-20">
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {navLinks.map((link) => (
-                    <div key={link.name}>
-                      {link.dropdown ? (
-                        <>
-                          {/* Parent with dropdown */}
-                          <button
-                            onClick={() => toggleMobileSubmenu(link.name)}
-                            className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all"
-                          >
-                            <span>{link.name}</span>
-                            <ChevronDown
-                              className={`w-5 h-5 transition-transform duration-300 ${
-                                mobileExpandedMenu === link.name ? "rotate-180" : ""
-                              }`}
-                            />
-                          </button>
-                          {/* Submenu */}
-                          <AnimatePresence>
-                            {mobileExpandedMenu === link.name && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="overflow-hidden"
-                              >
-                                <div className="pl-4 py-2 space-y-1">
-                                  {link.dropdown.map((item) => (
-                                    <Link
-                                      key={item.name}
-                                      href={item.href}
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary hover:bg-sage/10 rounded-lg transition-all"
-                                    >
-                                      {item.name}
-                                    </Link>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all"
-                        >
-                          {link.name}
-                        </Link>
-                      )}
-                    </div>
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all"
+                    >
+                      {link.name}
+                    </Link>
                   ))}
                 </div>
                 <div className="mt-8 pt-8 border-t border-sage/30">
                   <Link
                     href="/contact/#demo-form"
-                    onClick={() => setIsMobileMenuOpen(false)}
                     className="block w-full text-center px-6 py-3 bg-primary text-white font-semibold rounded-full"
                   >
                     Book a Demo

@@ -33,7 +33,7 @@ const teamMembers = [
     role: "CTO",
     description:
       "Leading technical architecture and infrastructure decisions. Expert in building scalable data pipelines and distributed systems.",
-    image: "/team/kashru.jpg",
+    image: "/team/kashru.png",
     achievements: "Data Pipeline Architect",
     location: "Bangladesh",
     isFounder: false,

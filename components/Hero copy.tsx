@@ -2,17 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Shield,
-  Zap,
-  Database,
-  CheckCircle2,
-  RefreshCw,
-  TrendingUp,
-  Sparkles,
-  Upload,
-} from "lucide-react";
+import { ArrowRight, Shield, Zap, Database, CheckCircle2, RefreshCw, TrendingUp } from "lucide-react";
 
 const features = [
   { icon: Shield, text: "Bypass Cloudflare & Captchas" },
@@ -43,14 +33,16 @@ const itemVariants = {
   },
 };
 
+// NEW COLOR PALETTE - Navy Blue + Coral Orange
 const colors = {
-  primary: "#043f34",
-  secondary: "#71967d",
-  sage: "#afcab8",
-  mint: "#b6e5d2",
-  cream: "#faf9f7",
-  slate: "#475569", // Darker slate for better readability
-  textBody: "#374151", // Darker body text (was gray-600, now gray-700)
+  primary: "#0f172a", // Deep Navy
+  secondary: "#1e3a5f", // Navy Blue
+  accent: "#f97316", // Coral Orange
+  accentLight: "#fb923c", // Light Orange
+  sky: "#38bdf8", // Sky Blue
+  skyLight: "#7dd3fc", // Light Sky
+  slate: "#64748b", // Slate Gray
+  cream: "#f8fafc", // Light Background
   white: "#ffffff",
 };
 
@@ -110,31 +102,29 @@ export default function Hero() {
           >
             {/* Badge */}
             <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-sage/30 text-primary text-sm font-medium mb-8">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-sage/30 text-primary text-sm font-medium mb-6">
                 <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-                <Sparkles className="w-4 h-4 mr-1.5" /> Enterprise-Grade Data
-                Extraction
+                Built to Scale
               </span>
             </motion.div>
 
-            {/* Heading — "Web Scraping Pipeline" stays together */}
+            {/* Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-[50px] font-bold font-display text-primary leading-[1.08] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-primary leading-[1.1] tracking-tight"
             >
-              We Handle Your
-              <br />
-              <span className="relative inline-block mt-1 pb-2">
-                <span className="text-gradient">Web Scraping Pipeline</span>
+              Your Web Scraping Team{" "}
+              <span className="relative">
+                <span className="text-gradient">on Demand</span>
                 <motion.svg
                   className="absolute -bottom-2 left-0 w-full"
-                  viewBox="0 0 300 8"
+                  viewBox="0 0 200 8"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
                   transition={{ duration: 1, delay: 1.2 }}
                 >
                   <motion.path
-                    d="M 0 4 Q 75 0, 150 4 Q 225 8, 300 4"
+                    d="M 0 4 Q 50 0, 100 4 Q 150 8, 200 4"
                     fill="none"
                     stroke="url(#gradient)"
                     strokeWidth="3"
@@ -156,21 +146,20 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Description — more top margin, darker text */}
+            {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="mt-8 text-lg sm:text-xl leading-relaxed"
-              style={{ color: colors.textBody }}
+              className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed"
             >
-              Delivering structured data — reliably, at any scale. Bypassing
-              Cloudflare, DataDome, and login walls. No proxy headaches. No
-              infrastructure overhead.
+              We deliver structured data at large scale — no Cloudflare, no
+              Captchas, no hassles. Just tell us what you need, we&apos;ll
+              handle everything.
             </motion.p>
 
             {/* Features */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 flex flex-wrap gap-3"
+              className="mt-8 flex flex-wrap gap-4"
             >
               {features.map((feature, index) => (
                 <motion.div
@@ -178,20 +167,10 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
-                  className="flex items-center gap-2.5 px-4 py-2.5 bg-white rounded-xl shadow-soft border border-sage/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-soft border border-sage/20"
                 >
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${colors.mint}50 0%, ${colors.sage}50 100%)`,
-                    }}
-                  >
-                    <feature.icon className="w-4 h-4 text-primary" />
-                  </div>
-                  <span
-                    className="text-sm font-medium"
-                    style={{ color: colors.textBody }}
-                  >
+                  <feature.icon className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-gray-700">
                     {feature.text}
                   </span>
                 </motion.div>
@@ -205,14 +184,14 @@ export default function Hero() {
             >
               <Link
                 href="/contact/#demo-form"
-                className="group inline-flex items-center justify-center px-7 py-3.5 bg-primary text-white font-semibold rounded-2xl text-lg transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-semibold rounded-full text-lg transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/solutions"
-                className="group inline-flex items-center justify-center px-7 py-3.5 bg-white text-primary font-semibold rounded-2xl text-lg border-2 border-primary/20 hover:border-primary hover:bg-sage/10 transition-all duration-300"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-white text-primary font-semibold rounded-full text-lg border-2 border-primary/20 hover:border-primary hover:bg-sage/10 transition-all duration-300"
               >
                 View Solutions
                 <ArrowRight className="ml-2 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -222,43 +201,45 @@ export default function Hero() {
             {/* Trust indicators */}
             <motion.div
               variants={itemVariants}
-              className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm"
-              style={{ color: colors.slate }}
+              className="mt-12 flex items-center gap-6 text-sm text-gray-500"
             >
-              {[
-                { label: "SFTP · Parquet · CSV", icon: Database },
-                { label: "API · JSON", icon: Zap },
-                { label: "Amazon S3 · Webhook", icon: RefreshCw },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4 text-primary" />
-                  <span>{item.label}</span>
-                </div>
-              ))}
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+                <span>99.9% Uptime</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+                <span>Enterprise Ready</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+                <span>GDPR Compliant</span>
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Visual — Dashboard Preview */}
+          {/* Right Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="relative hidden lg:block"
           >
-            <div className="relative">
+            {/* Right Visual - Dashboard Preview */}
+            <div className="relative hidden lg:block">
               {/* Glow Effect */}
               <div
                 className="absolute -inset-4 rounded-3xl blur-3xl opacity-30"
                 style={{
-                  background: `linear-gradient(135deg, ${colors.mint} 0%, ${colors.secondary} 100%)`,
+                  background: `linear-gradient(135deg, ${colors.sky} 0%, ${colors.accent} 100%)`,
                 }}
               />
 
               {/* Main Card */}
-              <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-sage/20">
+              <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
                 {/* Header Bar */}
                 <div
-                  className="px-6 py-4 border-b border-sage/20 flex items-center justify-between"
+                  className="px-6 py-4 border-b border-slate-100 flex items-center justify-between"
                   style={{
                     background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
                   }}
@@ -272,15 +253,15 @@ export default function Hero() {
                     Pipeline Dashboard
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-mint animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                     <span className="text-white/80 text-xs">Live</span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-4">
+                <div className="p-6">
                   {/* Stats Row */}
-                  <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     {[
                       {
                         value: "24.3M",
@@ -294,31 +275,25 @@ export default function Hero() {
                         trend: "+0.3%",
                         icon: CheckCircle2,
                       },
-                      {
-                        value: "S3 · SFTP",
-                        label: "Data Delivery",
-                        trend: "API · CSV",
-                        icon: Upload,
-                      },
                     ].map((stat) => (
                       <div
                         key={stat.label}
                         className="p-4 rounded-2xl transition-all hover:scale-105 cursor-pointer"
                         style={{
                           background: `linear-gradient(135deg, ${colors.cream} 0%, white 100%)`,
-                          border: `1px solid ${colors.sage}30`,
+                          border: `1px solid ${colors.sky}20`,
                         }}
                       >
                         <div className="flex items-center justify-between mb-2">
                           <stat.icon
                             className="w-5 h-5"
-                            style={{ color: colors.primary }}
+                            style={{ color: colors.accent }}
                           />
                           <span
                             className="text-xs font-semibold px-2 py-1 rounded-full"
                             style={{
-                              backgroundColor: colors.mint,
-                              color: colors.primary,
+                              backgroundColor: `${colors.accent}15`,
+                              color: colors.accent,
                             }}
                           >
                             {stat.trend}
@@ -341,74 +316,52 @@ export default function Hero() {
                   <div className="space-y-3">
                     {[
                       {
-                        name: "DoorDash Brands",
-                        tag: "Pricing Intel",
-                        records: "55M/week",
-                        color: "#e07b2a", // orange
-                        bg: "#fef3e8",
-                      },
-                      {
                         name: "StubHub Tickets",
-                        tag: "Ticketing",
+                        status: "Running",
                         records: "8.2M/day",
-                        color: "#043f34", // deep green
-                        bg: "#e8f5f0",
+                        color: colors.accent,
                       },
                       {
                         name: "Indeed Jobs",
-                        tag: "Job Data",
+                        status: "Running",
                         records: "1.4M/week",
-                        color: "#71967d", // secondary
-                        bg: "#f0f7f2",
+                        color: colors.sky,
                       },
                       {
                         name: "LinkedIn Profiles",
-                        tag: "B2B Data",
-                        records: "100M/month",
-                        color: "#0a66c2", // LinkedIn blue
-                        bg: "#e8f1fb",
+                        status: "Running",
+                        records: "100M/mo",
+                        color: colors.accentLight,
                       },
                     ].map((pipeline) => (
                       <div
                         key={pipeline.name}
-                        className="flex items-center justify-between p-4 rounded-xl transition-all cursor-pointer hover:shadow-sm"
-                        style={{ backgroundColor: pipeline.bg }}
+                        className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-all cursor-pointer"
                       >
                         <div className="flex items-center gap-3">
-                          {/* Dot */}
                           <div
-                            className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                            className="w-3 h-3 rounded-full animate-pulse"
                             style={{ backgroundColor: pipeline.color }}
                           />
-                          {/* Name + Tag — same line */}
                           <span
-                            className="font-semibold text-sm"
+                            className="font-semibold"
                             style={{ color: colors.primary }}
                           >
                             {pipeline.name}
                           </span>
-                          <span
-                            className="text-xs font-medium px-2 py-0.5 rounded-full"
-                            style={{
-                              backgroundColor: pipeline.color + "22",
-                              color: pipeline.color,
-                            }}
-                          >
-                            {pipeline.tag}
-                          </span>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-4">
                           <span
-                            className="text-xs font-medium"
+                            className="text-sm"
                             style={{ color: colors.slate }}
                           >
                             {pipeline.records}
                           </span>
                           <span
-                            className="text-xs font-medium px-2.5 py-1 rounded-full text-white"
+                            className="text-xs font-medium px-3 py-1 rounded-full text-white"
                             style={{ backgroundColor: pipeline.color }}
                           >
-                            Running
+                            {pipeline.status}
                           </span>
                         </div>
                       </div>
@@ -417,21 +370,16 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating Notification — Cloudflare Bypassed (top-right) */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-sage/20"
+              {/* Floating Notification Card */}
+              <div
+                className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 animate-bounce border border-slate-100"
+                style={{ animationDuration: "4s" }}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center"
                     style={{
-                      background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
+                      background: `linear-gradient(135deg, ${colors.accent} 0%, ${colors.accentLight} 100%)`,
                     }}
                   >
                     <Shield className="w-5 h-5 text-white" />
@@ -441,14 +389,42 @@ export default function Hero() {
                       className="text-sm font-bold"
                       style={{ color: colors.primary }}
                     >
-                      Anti-Bot Bypassed
+                      Cloudflare Bypassed
                     </p>
                     <p className="text-xs" style={{ color: colors.slate }}>
                       StubHub • Just now
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
+
+              {/* Floating Stats Card */}
+              <div
+                className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl p-4 animate-bounce border border-slate-100"
+                style={{ animationDuration: "5s", animationDelay: "1s" }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: `linear-gradient(135deg, ${colors.sky} 0%, ${colors.skyLight} 100%)`,
+                    }}
+                  >
+                    <RefreshCw className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p
+                      className="text-sm font-bold"
+                      style={{ color: colors.primary }}
+                    >
+                      Auto-Retry Active
+                    </p>
+                    <p className="text-xs" style={{ color: colors.slate }}>
+                      Zero failures today
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

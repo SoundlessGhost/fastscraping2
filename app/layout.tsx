@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
+
+import type { Metadata } from "next";
+
+import ChatWidgetWrapper from "@/components/ChatWidgetWrapper";
 
 export const metadata: Metadata = {
   title: "Fastscraping - Your Web Scraping Team on Demand",
@@ -42,7 +45,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <ChatWidgetWrapper />
+      </body>
     </html>
   );
 }

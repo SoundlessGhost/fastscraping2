@@ -1,68 +1,67 @@
-'use client'
+"use client";
 
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const stats = [
   {
-    value: 100,
-    suffix: 'M+',
-    label: 'LinkedIn Profiles',
-    sublabel: 'Extracted Monthly',
-    color: 'primary',
+    value: 20,
+    suffix: "+",
+    label: "Active Clients",
+    sublabel: "Data-First Companies",
+    color: "primary",
   },
   {
     value: 60,
-    suffix: 'M',
-    label: 'Records Daily',
-    sublabel: 'Ticketing Data',
-    color: 'secondary',
+    suffix: "M",
+    label: "Records Daily",
+    sublabel: "Ticketing Data",
+    color: "secondary",
   },
   {
     value: 55,
-    suffix: 'M',
-    label: 'Weekly Records',
-    sublabel: 'Restaurant & Pricing',
-    color: 'sage',
+    suffix: "M",
+    label: "Weekly Records",
+    sublabel: "Restaurant & Pricing",
+    color: "sage",
   },
   {
     value: 99.7,
-    suffix: '%',
-    label: 'Bypass Success',
-    sublabel: 'Anti-Bot Systems',
-    color: 'mint',
+    suffix: "%",
+    label: "Bypass Success",
+    sublabel: "Anti-Bot Systems",
+    color: "mint",
   },
-]
+];
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const motionValue = useMotionValue(0)
-  const springValue = useSpring(motionValue, { 
-    damping: 50, 
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 50,
     stiffness: 100,
-    duration: 2000 
-  })
+    duration: 2000,
+  });
 
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value)
+      motionValue.set(value);
     }
-  }, [isInView, value, motionValue])
+  }, [isInView, value, motionValue]);
 
   useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest) => {
+    const unsubscribe = springValue.on("change", (latest) => {
       if (ref.current) {
-        const formatted = value % 1 !== 0 
-          ? latest.toFixed(1) 
-          : Math.round(latest).toString()
-        ref.current.textContent = formatted + suffix
+        const formatted =
+          value % 1 !== 0 ? latest.toFixed(1) : Math.round(latest).toString();
+        ref.current.textContent = formatted + suffix;
       }
-    })
-    return unsubscribe
-  }, [springValue, suffix, value])
+    });
+    return unsubscribe;
+  }, [springValue, suffix, value]);
 
-  return <span ref={ref}>0{suffix}</span>
+  return <span ref={ref}>0{suffix}</span>;
 }
 
 export default function Stats() {
@@ -70,7 +69,7 @@ export default function Stats() {
     <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-cream relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 pattern-dots opacity-30" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div
@@ -87,7 +86,8 @@ export default function Stats() {
             Numbers That <span className="text-gradient">Speak</span>
           </h2>
           <p className="mt-6 text-lg text-gray-600">
-            We operate production data pipelines delivering millions of records daily. These are real numbers from active client engagements.
+            We operate production data pipelines delivering millions of records
+            daily. These are real numbers from active client engagements.
           </p>
         </motion.div>
 
@@ -107,25 +107,21 @@ export default function Stats() {
               <div className="relative bg-white rounded-3xl p-8 border border-sage/20 shadow-soft group-hover:shadow-soft-lg transition-all duration-500 text-center overflow-hidden">
                 {/* Gradient overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-sage/10 to-mint/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Decorative circle */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-sage/20 to-mint/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Content */}
                 <div className="relative">
-                  <motion.div
-                    className="text-5xl lg:text-6xl font-bold font-display text-primary mb-2"
-                  >
+                  <motion.div className="text-5xl lg:text-6xl font-bold font-display text-primary mb-2">
                     <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                   </motion.div>
                   <h3 className="text-lg font-semibold text-gray-800 mb-1">
                     {stat.label}
                   </h3>
-                  <p className="text-sm text-gray-500">
-                    {stat.sublabel}
-                  </p>
+                  <p className="text-sm text-gray-500">{stat.sublabel}</p>
                 </div>
-                
+
                 {/* Bottom accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-sage transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
@@ -144,19 +140,19 @@ export default function Stats() {
           <div className="inline-flex items-center gap-8 flex-wrap justify-center">
             <div className="flex items-center gap-2 text-gray-600">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span>Active pipelines in 5+ countries</span>
+              <span>Active pipelines in 15+ countries</span>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
               <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              <span>12+ months client relationships</span>
+              <span>24+ months client relationships</span>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
               <div className="w-2 h-2 rounded-full bg-sage animate-pulse" />
-              <span>Zero account bans</span>
+              <span>24/7 Pipeline Monitoring </span>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

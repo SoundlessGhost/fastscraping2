@@ -53,10 +53,10 @@ function WorkInProgressView() {
 
       <div className="w-full space-y-3">
         <a
-          href="mailto:khalidsocialhandles@gmail.com"
+          href="mailto:khalid@fastscraping.com"
           className="block w-full py-3 bg-[#043f34] text-white font-semibold rounded-xl hover:bg-[#043f34]/90 transition-all text-center text-sm"
         >
-          Email Us — khalidsocialhandles@gmail.com
+          Email Us — khalid@fastscraping.com
         </a>
         <a
           href="https://wa.me/8801788791134"

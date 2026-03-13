@@ -134,11 +134,11 @@ export default function Footer() {
               {/* Contact info */}
               <div className="space-y-1.5">
                 <a
-                  href="mailto:khalidsocialhandles@gmail.com"
+                  href="mailto:khalid@fastscraping.com"
                   className="flex items-center gap-2 text-white/70 hover:text-mint transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>khalidsocialhandles@gmail.com</span>
+                  <span>khalid@fastscraping.com</span>
                 </a>
               </div>
 

@@ -24,14 +24,37 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-// FAQ Items (pricing numbers removed)
+// What affects pricing (factors)
+const pricingFactors = [
+  {
+    title: "Platforms",
+    description:
+      "Which websites you need scraped — complexity and anti-bot level affect cost.",
+  },
+  {
+    title: "Volume",
+    description:
+      "How many records you need — from thousands to millions per day.",
+  },
+  {
+    title: "Frequency",
+    description:
+      "How often you need fresh data — daily, weekly, or monthly refresh cycles.",
+  },
+  {
+    title: "Delivery",
+    description:
+      "How you want data delivered — REST API, SFTP, S3, CSV, Parquet, or Webhook.",
+  },
+];
+
+// FAQ Items (no pricing numbers)
 const faqs = [
   {
     question: "How does FastScraping pricing work?",
     answer:
-      "FastScraping offers custom pricing based on your specific needs — the platform(s) you want to scrape, data volume, refresh frequency, and delivery method. We work with you to find a plan that fits your budget and goals. Contact us for a custom quote.",
+      "We offer custom pricing based on your specific needs — the platform(s) you want to scrape, data volume, refresh frequency, and delivery method. We work with you to find a plan that fits your budget and goals. Contact us for a custom quote.",
   },
-
   {
     question: "Do you offer a trial or sample data?",
     answer:
@@ -48,9 +71,14 @@ const faqs = [
       "In most cases, yes. Tell us what you're currently paying and we'll do our best to match or beat it while delivering better quality and reliability. We've replaced many failed vendors at competitive rates.",
   },
   {
-    question: "What payment methods do you accept?",
+    question: "What delivery formats do you support?",
     answer:
-      "We accept wire transfers, PayPal, and can set up invoice billing for enterprise clients.",
+      "We deliver data via REST API (JSON), SFTP (Parquet, TSV, CSV, ZIP), Amazon S3, or Webhooks. We build recurring pipelines — daily, weekly, or monthly — not one-off jobs.",
+  },
+  {
+    question: "What anti-bot systems can you bypass?",
+    answer:
+      "We reliably bypass Cloudflare, DataDome, PerimeterX (HUMAN), Akamai, and custom anti-bot systems. Our stealth browser identity technology creates unique digital fingerprints per session — not just IP rotation.",
   },
   {
     question: "Is there a minimum contract length?",
@@ -100,64 +128,125 @@ export default function PricingContent() {
         </div>
       </section>
 
-      {/* Main CTA Section */}
+      {/* Main Pricing Card — Expanded */}
       <section className="py-20 bg-white">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* FastScraping */}
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-cream rounded-3xl p-8 border border-sage/20 shadow-soft"
+            className="bg-cream rounded-3xl border border-sage/20 shadow-soft overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sage/40 to-mint/40 flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-primary">FastScraping</h3>
-                <p className="text-sm text-gray-500">
-                  Fully Managed Data Pipelines
-                </p>
-              </div>
-            </div>
-
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              We build and maintain custom data pipelines for your exact needs.
-              You tell us what data you want — we handle everything else.
-              Pricing is tailored to your volume, platforms, and delivery
-              requirements.
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-3 mb-8">
-              {[
-                "Any website, any scale",
-                "Anti-bot bypass included",
-                "SFTP, API, or S3 delivery",
-                "24/7 monitoring & maintenance",
-                "Dedicated account manager",
-                "No long-term contracts",
-              ].map((feature) => (
-                <div key={feature} className="flex items-center gap-2 text-sm">
-                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
+            {/* Card Header */}
+            <div className="p-8 pb-0">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sage/40 to-mint/40 flex items-center justify-center">
+                  <Building2 className="w-6 h-6 text-primary" />
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-xl font-bold text-primary">
+                    FastScraping
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Fully Managed Data Pipelines
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-gray-600 leading-relaxed">
+                We build and maintain custom data pipelines for your exact
+                needs. You tell us what data you want — we handle everything
+                else. Pricing is tailored to your volume, platforms, and
+                delivery requirements.
+              </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/contact"
-                className="flex-1 py-3.5 bg-primary text-white font-semibold rounded-full text-center hover:shadow-glow transition-all"
-              >
-                Get a Custom Quote
-              </Link>
-              <a
-                href="mailto:khalid@fastscraping.com"
-                className="flex-1 py-3.5 bg-white text-primary font-semibold rounded-full text-center border-2 border-primary/20 hover:border-primary transition-all"
-              >
-                Email Us Directly
-              </a>
+            {/* Features Grid */}
+            <div className="p-8">
+              <div className="grid sm:grid-cols-2 gap-3">
+                {[
+                  "Any website, any scale",
+                  "Anti-bot bypass included",
+                  "SFTP, API, or S3 delivery",
+                  "24/7 monitoring & maintenance",
+                  "Dedicated account manager",
+                  "No long-term contracts",
+                  "50+ internal QA checks per dataset",
+                  "Month-to-month billing",
+                ].map((feature) => (
+                  <div
+                    key={feature}
+                    className="flex items-center gap-2 text-sm"
+                  >
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-gray-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* What Affects Pricing */}
+            <div className="px-8 pb-8">
+              <p className="text-xs font-bold text-secondary uppercase tracking-wider mb-4">
+                What Affects Your Price
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {pricingFactors.map((factor) => (
+                  <div
+                    key={factor.title}
+                    className="bg-white rounded-xl p-4 border border-sage/10"
+                  >
+                    <p className="text-sm font-semibold text-primary mb-1">
+                      {factor.title}
+                    </p>
+                    <p className="text-xs text-gray-500 leading-relaxed">
+                      {factor.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Anti-bot systems */}
+            <div className="px-8 pb-8">
+              <p className="text-xs font-bold text-secondary uppercase tracking-wider mb-3">
+                Anti-Bot Systems We Bypass
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Cloudflare",
+                  "DataDome",
+                  "PerimeterX",
+                  "Akamai",
+                  "CAPTCHAs",
+                  "Browser Fingerprinting",
+                ].map((system) => (
+                  <span
+                    key={system}
+                    className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-primary border border-sage/20"
+                  >
+                    {system}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="px-8 pb-8">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/contact"
+                  className="flex-1 py-3.5 bg-primary text-white font-semibold rounded-full text-center hover:shadow-glow transition-all"
+                >
+                  Get a Custom Quote
+                </Link>
+                <a
+                  href="mailto:khalid@fastscraping.com"
+                  className="flex-1 py-3.5 bg-white text-primary font-semibold rounded-full text-center border-2 border-primary/20 hover:border-primary transition-all"
+                >
+                  Email Us Directly
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -186,7 +275,7 @@ export default function PricingContent() {
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-primary rounded-full font-semibold hover:shadow-xl transition-all"
               >
-                Book a Demo
+                Get Custom Quote
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
@@ -224,7 +313,7 @@ export default function PricingContent() {
                 icon: Shield,
                 title: "Anti-Bot Bypass",
                 description:
-                  "Cloudflare, DataDome, PerimeterX — all bypassed, included in price.",
+                  "Cloudflare, DataDome, PerimeterX, Akamai — all bypassed, included in price.",
               },
               {
                 icon: Server,
@@ -384,7 +473,7 @@ export default function PricingContent() {
               FAQ
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold font-display text-primary tracking-tight">
-              Pricing <span className="text-gradient">Questions</span>
+              Common <span className="text-gradient">Questions</span>
             </h2>
           </motion.div>
 

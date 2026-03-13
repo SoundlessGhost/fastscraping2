@@ -25,7 +25,7 @@ const teamMembers = [
     links: {
       linkedin: "https://linkedin.com/in/md-khalid-mahmud-shawon",
       upwork: "https://upwork.com/freelancers/khalidalsaba",
-      email: "hello@fastscraping.com",
+      email: "khalidsocialhandles@gmail.com",
     },
   },
   {

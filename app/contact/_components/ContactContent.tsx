@@ -28,8 +28,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "Get a response within 24 hours",
-    value: "hello@fastscraping.com",
-    link: "mailto:hello@fastscraping.com",
+    value: "khalidsocialhandles@gmail.com",
+    link: "mailto:khalidsocialhandles@gmail.com",
   },
   {
     icon: Calendar,
@@ -462,11 +462,11 @@ export default function ContactContent() {
                 </h4>
                 <div className="space-y-3">
                   <a
-                    href="mailto:hello@fastscraping.com"
+                    href="mailto:khalidsocialhandles@gmail.com"
                     className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors"
                   >
                     <Mail className="w-5 h-5" />
-                    hello@fastscraping.com
+                    khalidsocialhandles@gmail.com
                   </a>
                   <a
                     href="https://linkedin.com/in/md-khalid-mahmud-shawon"
@@ -535,7 +535,7 @@ export default function ContactContent() {
           >
             <p className="text-gray-600 mb-4">Still have questions?</p>
             <a
-              href="mailto:hello@fastscraping.com"
+              href="mailto:khalidsocialhandles@gmail.com"
               className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
             >
               Email us directly

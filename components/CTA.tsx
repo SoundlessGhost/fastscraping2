@@ -107,7 +107,7 @@ export default function CTA() {
                 </Link>
 
                 <Link
-                  href="mailto:hello@fastscraping.com"
+                  href="mailto:khalidsocialhandles@gmail.com"
                   className="group flex items-center justify-center w-full px-8 py-4 bg-sage/20 text-primary font-semibold rounded-full text-lg border-2 border-primary/10 hover:border-primary hover:bg-sage/30 transition-all duration-300"
                 >
                   Send a Message

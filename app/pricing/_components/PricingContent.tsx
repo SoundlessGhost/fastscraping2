@@ -490,7 +490,7 @@ export default function PricingContent() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
-                href="mailto:hello@fastscraping.com"
+                href="mailto:khalidsocialhandles@gmail.com"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-all"
               >
                 Email Us Directly

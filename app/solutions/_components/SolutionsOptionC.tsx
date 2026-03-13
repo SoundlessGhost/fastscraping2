@@ -24,7 +24,7 @@ const solutions = [
     id: "pricing-intelligence",
     icon: TrendingUp,
     title: "Competitor Pricing Intelligence",
-    shortDesc: "Track competitor prices in real-time across 100+ platforms",
+    shortDesc: "Track competitor prices in real-time across 100+ platforms to optimize your pricing strategy and protect your margins",
     description:
       "Monitor pricing across e-commerce platforms, ticketing sites, and marketplaces. Get daily or real-time price feeds to optimize your pricing strategy and protect your margins. Detect MAP violations, track historical trends, and automate competitor price matching with ease. Our solution covers 100+ platforms including Amazon, Walmart, StubHub, SeatGeek, eBay, and Target. With over 60M prices tracked daily, you can make data-driven pricing decisions with confidence.",
     features: [
@@ -48,9 +48,9 @@ const solutions = [
     id: "marketplace-intelligence",
     icon: ShoppingCart,
     title: "Marketplace Intelligence",
-    shortDesc: "Extract product data from any marketplace at scale",
+    shortDesc: "Extract product data from any marketplace at scale to power your e-commerce analytics and competitive research ",
     description:
-      "Extract comprehensive product information from any marketplace. Track inventory levels, reviews, ratings, seller data, and product specifications at scale.",
+      "Extract comprehensive product information from any marketplace. Track inventory levels, reviews, ratings, seller data, and product specifications at scale. Our solution covers Amazon, Shopee, Alibaba, Etsy, Mercado Libre, and more. With over 10M products monitored globally, you can gain complete product intelligence to optimize your assortment, pricing, and marketing strategies.",
     features: [
       "Product catalog extraction",
       "Review and rating aggregation",
@@ -72,9 +72,9 @@ const solutions = [
     id: "job-market",
     icon: Briefcase,
     title: "Job Market Insights",
-    shortDesc: "Aggregate job data from 50+ boards worldwide",
+    shortDesc: "Aggregate job data from 50+ boards worldwide to track hiring trends, salary data, and skill demand across industries and regions",
     description:
-      "Aggregate job postings from Indeed, LinkedIn, Glassdoor, and 50+ job boards worldwide. Track hiring trends, salary data, and skill demand across industries and regions.",
+      "Aggregate job postings from Indeed, LinkedIn, Glassdoor, and 50+ job boards worldwide. Track hiring trends, salary data, and skill demand across industries and regions. Our solution provides multi-country job data, salary range extraction, skills and requirements analysis, hiring trend monitoring, company hiring velocity tracking, and remote job identification. With over 1.4M jobs collected weekly, you can gain comprehensive insights into the global job market to inform your talent strategy and market research.",
     features: [
       "Multi-country job data (US, UK, EU, Asia)",
       "Salary range extraction",
@@ -96,9 +96,9 @@ const solutions = [
     id: "linkedin-data",
     icon: Users,
     title: "LinkedIn Data Platform",
-    shortDesc: "Professional data with zero account ban risk",
+    shortDesc: "Professional data with zero account ban risk - access LinkedIn profiles, companies, jobs, and posts at scale with our cookieless approach",
     description:
-      "Access LinkedIn profiles, companies, jobs, and posts at scale. Our cookieless approach means zero risk of account bans. Power your sales intelligence, recruiting tools, and market research.",
+      "Access LinkedIn profiles, companies, jobs, and posts at scale. Our cookieless approach means zero risk of account bans. Power your sales intelligence, recruiting tools, and market research. our solution provides profile data with full experience history, company intelligence and employee data, job postings and hiring signals, Sales Navigator data extraction, skills and endorsement data, all without using cookies or risking account bans. With over 100M profiles processed monthly, you can gain comprehensive professional data to fuel your business insights and growth.",
     features: [
       "Profile data with full experience history",
       "Company intelligence and employee data",
@@ -120,9 +120,9 @@ const solutions = [
     id: "web-data-apis",
     icon: Code,
     title: "Web Data APIs",
-    shortDesc: "Custom REST APIs for any data source",
+    shortDesc: "Custom REST APIs for any data source with real-time access, JSON/XML responses, and comprehensive documentation",
     description:
-      "Get structured data via REST APIs built specifically for your needs. Real-time access with JSON responses, comprehensive documentation, and 99.9% uptime SLA.",
+      "Get structured data via REST APIs built specifically for your needs. Real-time access with JSON responses, comprehensive documentation, and 99.9% uptime SLA. Our solution provides custom REST API endpoints, real-time data access, JSON/XML response formats, webhook delivery options, rate limiting and authentication, and comprehensive API documentation. We cover any website or custom builds to ensure you get the data you need in the format you want, with reliable performance and support.",
     features: [
       "Custom REST API endpoints",
       "Real-time data access",
@@ -144,9 +144,9 @@ const solutions = [
     id: "data-pipelines",
     icon: Database,
     title: "Data Pipelines & ETL",
-    shortDesc: "Automated data delivery on your schedule",
+    shortDesc: "Automated data delivery on your schedule - SFTP, S3, or direct database integration with data validation and schema normalization",
     description:
-      "Fully managed data pipelines that deliver clean, structured data on your schedule. SFTP, S3, or direct database integration. We handle extraction, transformation, and loading.",
+      "Fully managed data pipelines that deliver clean, structured data on your schedule. SFTP, S3, or direct database integration. We handle extraction, transformation, and loading. Our solution provides scheduled data delivery (daily/weekly/monthly), multiple formats (Parquet, CSV, JSON, TSV), direct S3/SFTP/Webhook delivery, data validation and QA checks, schema normalization, and automatic error recovery. We integrate with Snowflake, BigQuery, S3, SFTP, Webhooks, and more to ensure your data is delivered where you need it, when you need it, with the quality and reliability you expect.",
     features: [
       "Scheduled data delivery (daily/weekly/monthly)",
       "Multiple formats (Parquet, CSV, JSON, TSV)",

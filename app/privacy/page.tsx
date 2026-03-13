@@ -89,7 +89,7 @@ export default function PrivacyPolicyPage() {
                 <div className="mt-8 p-4 bg-gradient-to-br from-sage/20 to-mint/20 rounded-2xl">
                   <p className="text-sm text-gray-600 mb-3">Have questions?</p>
                   <a
-                    href="mailto:hello@fastscraping.com"
+                    href="mailto:khalidsocialhandles@gmail.com"
                     className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                   >
                     Contact us
@@ -381,10 +381,10 @@ export default function PrivacyPolicyPage() {
                         <p className="text-gray-700">
                           <strong className="text-primary">Email:</strong>{" "}
                           <a
-                            href="mailto:hello@fastscraping.com"
+                            href="mailto:khalidsocialhandles@gmail.com"
                             className="text-secondary hover:underline"
                           >
-                            hello@fastscraping.com
+                            khalidsocialhandles@gmail.com
                           </a>
                         </p>
                         <p className="text-gray-700">

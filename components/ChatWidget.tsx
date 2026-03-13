@@ -43,7 +43,7 @@ function WorkInProgressView() {
       </div>
 
       <h4 className="font-semibold text-gray-800 text-lg mb-2">
-        We&apos;re Setting Things Up!
+        We&apos;re Working On It!
       </h4>
 
       <p className="text-sm text-gray-500 leading-relaxed mb-6">

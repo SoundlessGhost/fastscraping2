@@ -232,25 +232,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Scrayz Brand */}
-        <div className="py-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-4">
-              <span className="text-white/50 text-sm">Also check out:</span>
-              <a
-                href="https://scrayz.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <span className="font-semibold">Scrayz</span>
-                <span className="text-white/70 text-sm">LinkedIn API</span>
-                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="py-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">

@@ -97,7 +97,7 @@ export function TeamBentoGridV2() {
               <div className="bg-white rounded-3xl overflow-hidden border border-sage/20 shadow-soft-lg">
                 <div className="grid lg:grid-cols-2">
                   {/* Image */}
-                  <div className="relative h-80 lg:h-full min-h-[400px] overflow-hidden">
+                  <div className="relative h-64 sm:h-80 lg:h-full lg:min-h-[400px] overflow-hidden">
                     <Image
                       src={founder.image}
                       alt={founder.name}
@@ -130,7 +130,7 @@ export function TeamBentoGridV2() {
                       {founder.description}
                     </p>
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-3">
                       {founder.links.linkedin && (
                         <a
                           href={founder.links.linkedin}
@@ -182,7 +182,7 @@ export function TeamBentoGridV2() {
               >
                 <div className="grid sm:grid-cols-2">
                   {/* Image */}
-                  <div className="relative h-48 sm:h-full min-h-[280px] overflow-hidden">
+                  <div className="relative h-48 sm:h-64 lg:h-full lg:min-h-[280px] overflow-hidden">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -281,7 +281,7 @@ export function TeamBentoGridV3() {
             <div className="bg-white rounded-3xl overflow-hidden border border-sage/20 shadow-soft-lg">
               <div className="grid lg:grid-cols-2">
                 {/* Image */}
-                <div className="relative h-80 lg:h-full min-h-[400px] overflow-hidden">
+                <div className="relative h-64 lg:h-full lg:min-h-[400px] overflow-hidden">
                   <Image
                     src={founder.image}
                     alt={founder.name}
@@ -361,7 +361,7 @@ export function TeamBentoGridV3() {
             >
               <div className="grid sm:grid-cols-2">
                 {/* Image */}
-                <div className="relative h-48 sm:h-full min-h-[280px] overflow-hidden">
+                <div className="relative h-48 lg:h-full lg:min-h-[280px] overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}

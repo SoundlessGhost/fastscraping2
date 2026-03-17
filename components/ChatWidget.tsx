@@ -334,7 +334,7 @@ function ChatWidgetContent() {
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
             onClick={openChat}
-            className="fixed bottom-6 right-6 w-14 h-14 bg-[#043f34] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all z-[9999] flex items-center justify-center"
+            className="fixed bottom-6 right-6 w-14 h-14 bg-[#043f34] text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all z-[9999] hidden lg:flex items-center justify-center"
             type="button"
           >
             <MessageCircle className="w-6 h-6" />
@@ -354,7 +354,7 @@ function ChatWidgetContent() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className={`fixed bottom-6 right-6 w-[380px] ${CHAT_UNDER_CONSTRUCTION ? "" : "h-[550px]"} bg-white rounded-2xl shadow-2xl z-[9999] flex flex-col overflow-hidden`}
+            className={`fixed bottom-6 right-6 w-[380px] ${CHAT_UNDER_CONSTRUCTION ? "" : "h-[550px]"} bg-white rounded-2xl shadow-2xl z-[9999] hidden lg:flex flex-col overflow-hidden`}
           >
             {/* Header */}
             <div className="bg-[#043f34] text-white p-4 flex items-center justify-between">

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, CircleDot } from "lucide-react";
 
 const navLinks = [
   {
@@ -48,7 +48,17 @@ const navLinks = [
   { name: "About", href: "/about" },
 ];
 
-export default function Navbar() {
+const colors = {
+  primary: "#043f34",
+  secondary: "#71967d",
+  sage: "#afcab8",
+  mint: "#b6e5d2",
+  cream: "#faf9f7",
+  slate: "#475569",
+  white: "#ffffff",
+};
+
+export default function NavbarVariant002() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -59,15 +69,11 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
-    // Initial check on page load/reload
     handleScroll();
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle logo click - scroll to top if on homepage
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (pathname === "/") {
       e.preventDefault();
@@ -75,7 +81,6 @@ export default function Navbar() {
     }
   };
 
-  // Toggle mobile submenu
   const toggleMobileSubmenu = (name: string) => {
     setMobileExpandedMenu(mobileExpandedMenu === name ? null : name);
   };
@@ -88,76 +93,94 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-soft py-3"
+            ? "bg-white/95 backdrop-blur-xl shadow-sm py-3"
             : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo - Flow Style */}
             <Link
               href="/"
               onClick={handleLogoClick}
-              className="flex items-center space-x-1 group"
+              className="flex items-center space-x-2 group"
             >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient
-                    id="grad"
-                    x1="10"
-                    y1="4"
-                    x2="40"
-                    y2="44"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#043f34" />
-                    <stop offset="1" stopColor="#71967d" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M30 4L10 28H24L20 44L40 18H26L30 4Z"
-                  fill="url(#grad)"
-                />
-              </svg>
-              <motion.div
-                className="relative"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="text-2xl font-bold font-display">
-                  <span className="text-primary">Fast</span>
-                  <span className="text-secondary">scraping</span>
-                </span>
+              {/* Flow nodes logo */}
+              <div className="flex items-center gap-1">
                 <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-secondary"
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: colors.primary }}
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <motion.div
+                  className="w-6 h-0.5 rounded-full"
+                  style={{ backgroundColor: colors.sage }}
+                  animate={{ scaleX: [1, 0.7, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <motion.div
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: colors.secondary }}
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                />
+              </div>
+              <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <span className="text-2xl font-bold font-display">
+                  <span style={{ color: colors.primary }}>Fast</span>
+                  <span style={{ color: colors.secondary }}>scraping</span>
+                </span>
+                {/* Flow underline on hover */}
+                <motion.div
+                  className="absolute -bottom-1 left-0 h-0.5 flex items-center gap-1"
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
                   transition={{ duration: 0.3 }}
-                />
+                >
+                  <div className="flex-1 h-full rounded-full" style={{ backgroundColor: colors.primary }} />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.sage }} />
+                  <div className="flex-1 h-full rounded-full" style={{ backgroundColor: colors.secondary }} />
+                </motion.div>
               </motion.div>
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Flow Style */}
             <div className="hidden lg:flex items-center space-x-1">
-              {navLinks.map((link) => (
+              {navLinks.map((link, index) => (
                 <div
                   key={link.name}
-                  className="relative"
-                  onMouseEnter={() =>
-                    link.dropdown && setActiveDropdown(link.name)
-                  }
+                  className="relative flex items-center"
+                  onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
+                  {/* Connector line between nav items */}
+                  {index > 0 && (
+                    <motion.div
+                      className="w-4 h-0.5 rounded-full mx-1"
+                      style={{ backgroundColor: colors.sage }}
+                      animate={{ opacity: [0.3, 0.6, 0.3] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  )}
                   <Link
                     href={link.href}
-                    className="flex items-center px-4 py-2 text-gray-700 hover:text-primary font-medium rounded-lg hover:bg-sage/20 transition-all duration-300"
+                    className="relative flex items-center px-4 py-2 font-medium rounded-full transition-all duration-300"
+                    style={{
+                      color: activeDropdown === link.name ? colors.primary : colors.slate,
+                      backgroundColor: activeDropdown === link.name ? `${colors.sage}30` : "transparent",
+                    }}
                   >
+                    {/* Active indicator dot */}
+                    {activeDropdown === link.name && (
+                      <motion.span
+                        className="absolute -left-1 w-2 h-2 rounded-full"
+                        style={{ backgroundColor: colors.primary }}
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.2 }}
+                      />
+                    )}
                     {link.name}
                     {link.dropdown && (
                       <ChevronDown
@@ -168,7 +191,7 @@ export default function Navbar() {
                     )}
                   </Link>
 
-                  {/* Dropdown Menu */}
+                  {/* Dropdown Menu - Flow Style */}
                   {link.dropdown && (
                     <AnimatePresence>
                       {activeDropdown === link.name && (
@@ -177,26 +200,48 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-soft-lg border border-sage/20 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-lg overflow-hidden"
+                          style={{ border: `2px solid ${colors.sage}40` }}
                         >
-                          <div className="p-2">
-                            {link.dropdown.map((item, index) => (
+                          <div className="p-3">
+                            {link.dropdown.map((item, idx) => (
                               <motion.div
                                 key={item.name}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.03 }}
+                                transition={{ delay: idx * 0.03 }}
                               >
                                 <Link
                                   href={item.href}
-                                  className="flex items-center px-4 py-2.5 text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all duration-200 group text-sm"
+                                  className="relative flex items-center px-4 py-3 rounded-xl transition-all duration-200 group text-sm"
+                                  style={{ color: colors.slate }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = `${colors.sage}20`;
+                                    e.currentTarget.style.color = colors.primary;
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = "transparent";
+                                    e.currentTarget.style.color = colors.slate;
+                                  }}
                                 >
+                                  {/* Flow dot indicator */}
+                                  <span
+                                    className="w-2 h-2 rounded-full mr-3 group-hover:scale-125 transition-transform"
+                                    style={{ backgroundColor: colors.secondary }}
+                                  />
                                   <span>{item.name}</span>
                                   <ArrowRight className="ml-auto w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                                 </Link>
                               </motion.div>
                             ))}
                           </div>
+                          {/* Flow indicator at bottom */}
+                          <div
+                            className="h-1 w-full"
+                            style={{
+                              background: `linear-gradient(90deg, ${colors.primary}, ${colors.secondary}, ${colors.sage})`,
+                            }}
+                          />
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -205,40 +250,52 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - Flow Style */}
             <div className="hidden lg:flex items-center space-x-4">
               <Link
                 href="/contact/#demo-form"
-                className="group relative inline-flex items-center px-6 py-2.5 bg-primary text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-glow"
+                className="group relative inline-flex items-center px-6 py-2.5 font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg"
+                style={{
+                  background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
+                  color: "white",
+                }}
               >
-                <span className="relative z-10">Talk to Khalid</span>
-                <ArrowRight className="relative z-10 ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                {/* Flowing highlight effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_100%]"
-                  animate={{
-                    backgroundPosition: ["0% 0%", "100% 0%", "0% 0%"],
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${colors.white}, transparent)`,
                   }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 3, repeat: Infinity }}
                 />
+                <span className="relative z-10 flex items-center">
+                  <span className="w-2 h-2 rounded-full mr-2" style={{ backgroundColor: colors.mint }} />
+                  Talk to Khalid
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-sage/20 transition-colors"
+              className="lg:hidden p-2 rounded-full transition-colors"
+              style={{
+                backgroundColor: isMobileMenuOpen ? `${colors.sage}30` : "transparent",
+              }}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-primary" />
+                <X className="w-6 h-6" style={{ color: colors.primary }} />
               ) : (
-                <Menu className="w-6 h-6 text-primary" />
+                <Menu className="w-6 h-6" style={{ color: colors.primary }} />
               )}
             </button>
           </nav>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Flow Style */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -258,28 +315,45 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl overflow-y-auto"
+              style={{ borderLeft: `2px solid ${colors.sage}40` }}
             >
+              {/* Flow indicator at top */}
+              <div
+                className="h-1 w-full"
+                style={{
+                  background: `linear-gradient(90deg, ${colors.primary}, ${colors.secondary}, ${colors.sage})`,
+                }}
+              />
+
               <div className="p-6 pt-20">
                 <div className="space-y-1">
                   {navLinks.map((link) => (
                     <div key={link.name}>
                       {link.dropdown ? (
                         <>
-                          {/* Parent with dropdown */}
                           <button
                             onClick={() => toggleMobileSubmenu(link.name)}
-                            className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all"
+                            className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium rounded-xl transition-all"
+                            style={{
+                              color: mobileExpandedMenu === link.name ? colors.primary : colors.slate,
+                              backgroundColor: mobileExpandedMenu === link.name ? `${colors.sage}20` : "transparent",
+                            }}
                           >
-                            <span>{link.name}</span>
+                            <span className="flex items-center gap-3">
+                              <span
+                                className="w-2 h-2 rounded-full"
+                                style={{
+                                  backgroundColor: mobileExpandedMenu === link.name ? colors.primary : colors.sage,
+                                }}
+                              />
+                              {link.name}
+                            </span>
                             <ChevronDown
                               className={`w-5 h-5 transition-transform duration-300 ${
-                                mobileExpandedMenu === link.name
-                                  ? "rotate-180"
-                                  : ""
+                                mobileExpandedMenu === link.name ? "rotate-180" : ""
                               }`}
                             />
                           </button>
-                          {/* Submenu */}
                           <AnimatePresence>
                             {mobileExpandedMenu === link.name && (
                               <motion.div
@@ -289,14 +363,16 @@ export default function Navbar() {
                                 transition={{ duration: 0.2 }}
                                 className="overflow-hidden"
                               >
-                                <div className="pl-4 py-2 space-y-1">
+                                <div className="pl-6 py-2 space-y-1 border-l-2" style={{ borderColor: colors.sage }}>
                                   {link.dropdown.map((item) => (
                                     <Link
                                       key={item.name}
                                       href={item.href}
                                       onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary hover:bg-sage/10 rounded-lg transition-all"
+                                      className="flex items-center gap-2 px-4 py-2.5 text-sm rounded-lg transition-all"
+                                      style={{ color: colors.slate }}
                                     >
+                                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: colors.secondary }} />
                                       {item.name}
                                     </Link>
                                   ))}
@@ -309,20 +385,27 @@ export default function Navbar() {
                         <Link
                           href={link.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block px-4 py-3 text-lg font-medium text-gray-700 hover:text-primary hover:bg-sage/20 rounded-xl transition-all"
+                          className="flex items-center gap-3 px-4 py-3 text-lg font-medium rounded-xl transition-all"
+                          style={{ color: colors.slate }}
                         >
+                          <span className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.sage }} />
                           {link.name}
                         </Link>
                       )}
                     </div>
                   ))}
                 </div>
-                <div className="mt-8 pt-8 border-t border-sage/30">
+                <div className="mt-8 pt-8" style={{ borderTop: `2px solid ${colors.sage}40` }}>
                   <Link
                     href="/contact/#demo-form"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block w-full text-center px-6 py-3 bg-primary text-white font-semibold rounded-full"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3 font-semibold rounded-full"
+                    style={{
+                      background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
+                      color: "white",
+                    }}
                   >
+                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: colors.mint }} />
                     Book a Demo
                   </Link>
                 </div>

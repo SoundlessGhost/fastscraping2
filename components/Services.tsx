@@ -176,9 +176,9 @@ export default function Services() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-full hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300"
           >
-            Discuss Your Project
+            Talk to Khalid — No Commitment
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </motion.div>

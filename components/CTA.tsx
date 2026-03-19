@@ -100,15 +100,15 @@ export default function CTA() {
               <div className="space-y-4">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-center w-full px-8 py-4 bg-primary text-white font-semibold rounded-full text-lg transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5"
+                  className="group flex items-center justify-center w-full px-8 py-4 bg-primary text-white font-semibold rounded-xl text-lg transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5"
                 >
-                  Book a Demo Call
+                  Talk to Khalid — The Anti-Bot Expert{" "}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
                   href="mailto:khalid@fastscraping.com"
-                  className="group flex items-center justify-center w-full px-8 py-4 bg-sage/20 text-primary font-semibold rounded-full text-lg border-2 border-primary/10 hover:border-primary hover:bg-sage/30 transition-all duration-300"
+                  className="group flex items-center justify-center w-full px-8 py-4 bg-sage/20 text-primary font-semibold rounded-xl text-lg border-2 border-primary/10 hover:border-primary hover:bg-sage/30 transition-all duration-300"
                 >
                   Send a Message
                   <Mail className="ml-2 w-5 h-5" />

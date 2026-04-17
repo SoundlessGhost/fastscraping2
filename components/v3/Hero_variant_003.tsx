@@ -352,7 +352,7 @@ export default function HeroVariant003() {
                   className="relative group"
                 >
                   <div
-                    className="relative flex items-center gap-3 px-5 py-4 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden"
+                    className="relative flex items-center gap-3 px-3 py-3 rounded-2xl border-2 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden"
                     style={{
                       backgroundColor: colors.white,
                       borderColor: colors.sage + "50",
@@ -366,7 +366,7 @@ export default function HeroVariant003() {
                       }}
                     />
                     <div
-                      className="relative w-12 h-12 rounded-xl flex items-center justify-center"
+                      className="relative w-8 h-8 rounded-md flex items-center justify-center"
                       style={{
                         background: `linear-gradient(135deg, ${colors.mint}50 0%, ${colors.sage}30 100%)`,
                       }}
@@ -394,7 +394,7 @@ export default function HeroVariant003() {
             >
               <Link
                 href="/contact/#demo-form"
-                className="group relative inline-flex items-center justify-center px-8 py-4 font-bold rounded-2xl text-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
+                className="group relative inline-flex items-center justify-center px-6 py-3 font-bold rounded-2xl text-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
                 style={{ color: colors.white }}
               >
                 {/* Animated gradient background */}
@@ -421,7 +421,7 @@ export default function HeroVariant003() {
               </Link>
               <Link
                 href="/solutions"
-                className="group relative inline-flex items-center justify-center px-8 py-4 font-bold rounded-2xl text-md border-2 transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex items-center justify-center px-6 py-3 font-bold rounded-2xl text-md border-2 transition-all duration-300 overflow-hidden"
                 style={{
                   borderColor: colors.sage,
                   color: colors.primary,
